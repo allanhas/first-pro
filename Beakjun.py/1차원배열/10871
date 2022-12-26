@@ -1,0 +1,9 @@
+# x 보다 작은 수
+
+n,x=map(int, input().split())
+
+l1=list(map(int, input().split()))
+
+for i in l1:
+    if i < x:
+        print(i,end=" ")
