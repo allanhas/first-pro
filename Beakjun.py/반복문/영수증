@@ -1,0 +1,13 @@
+total=int(input())
+gkq=0
+n=int(input())
+for i in range(n):
+    a,b=map(int, input().split())
+    c=a*b
+    gkq=gkq+c
+
+if total==gkq:
+    print('Yes')
+
+else:
+    print('No')
