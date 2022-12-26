@@ -1,0 +1,6 @@
+n=int(input())
+gkq=0
+for i in range(n+1):
+    gkq=gkq+i
+
+print(gkq)
