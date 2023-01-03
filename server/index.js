@@ -7,13 +7,44 @@ const bodyParser = require('body-parser')
 const app = express()
 
 
+
 app.use(bodyParser.json())
 app.use(cors());
+
+
+app.post('/signUp',async(req,res)=>{
+    const id=req.body.id;
+    const name=req.body.name;
+    const pw=req.body.pw;
+    const email=req.body.email;
+    const sex=req.body.sex;
+    let result
+
+    try{
+        result = await models['user'].create({
+            id,//앞은 key값
+            name,
+            pw,
+            email,
+            sex,
+        })
+    }catch(err){
+        console.log(err);
+        res.send({message:"회원가입에 실패했습니다."})
+    }
+
+    res.send({message:"회원가입에 성공했습니다."})
+})
+
+
+
+
+
 const userData={
     id:'hi',
     pw:'gg'
 }
-
+//request response
 app.post('/login',async(req,res)=>{
     // 입력값들
     const id=req.body.id;
@@ -52,3 +83,5 @@ app.listen(port, async () => {
     console.log(`Example app listening on port ${port}`)
     await db.initialize()
   })
+
+

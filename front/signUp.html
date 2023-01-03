@@ -5,9 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href ="signUp.css" rel="stylesheet" />
+    <script src ="signUp.js"></script>
+
 </head>
+
 <body>
-    <input type="text">
-    <input type="text">
+    <div class = "wrapper">
+        <div class="title"><h1 style="font-size:21px;">회원가입</h1></div>
+        <div class="email">
+            <input id="id" type="text" placeholder="아이디 입력.">
+            
+        </div>
+        <div class ="name">
+            <input id ="name" type="text" placeholder="이름 입력">
+            
+        </div>
+        <div class ="pw">
+            <input id ="pw" type="text" placeholder="비밀번호 입력">
+            
+        </div>
+        <div class ="pw2">
+            <input id ="pw2" type="text" placeholder="비밀번호 확인">
+            
+        </div>
+        <div class ="email">
+            <input id ="email" type="text" placeholder="이메일 입력">
+            
+        </div>
+        <div class ="sex">
+            성별: <input id="sex_man" type="radio" name="sex">남성
+            <input id="sex_woman" type="radio" name="sex">여성
+           
+        </div>
+        <div class ="date">
+            가입일자: <input id="date" type="date" name="date">
+            
+        </div>
+        <div class="line">
+            <hr>
+        </div>
+        <div class="signUp">
+            <button id="signUpButton">회원가입하기</button>
+        </div>
+        
+    </div>
+    
 </body>
 </html>
