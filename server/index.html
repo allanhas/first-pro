@@ -1,15 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <h1>app.get('/', function (req, res) {<br>
-        res.sendFile(__dirname +'/index.html')
-    <br>}) <br>로 인해서 이곳에 왔습니다. s같은 server내에 있는 index.html이기때문이죠
-    </h1>
+    <h1 id="sound"></h1>
+    <input id = 'id' type="text">
+    <input id = 'pw' type="text">
+    <button onclick="getsound()">API 요청</button>
+    <script>
+        const getsound = async() =>{
+            const id = document.getElementById('id').value
+            const pw = document.getElementById('pw').value
+            await axios.post(`http://localhost:3000/sound`,{
+                id: id,
+                pw: pw
+            }).then((res)=>{
+                if(res.data.data==="no id or pw"){
+                    alert("아이디나 패스워드가 제대로 안들어왔습니다.")
+                }
+                console.log(res.data.data)
+            }).catch((err)=>{
+                console.log(err)
+            })
+    } ////get 요청
+    </script>
 </body>
 </html>
