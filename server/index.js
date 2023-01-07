@@ -15,13 +15,14 @@ app.use(cors());
 //누군가가 /회원가입으로 방문을 하면 
 // 회원가입 관련된 안내문을띄워주자...
 app.post('/signUp',async(req,res)=>{
-    const id=req.body.id;
-    const name=req.body.name;
-    const pw=req.body.pw;
-    const email=req.body.email;
-    const sex=req.body.sex;
+    const {id,name,pw,email,sex}=req.body
+    // const id=req.body.id;
+    // const name=req.body.name;
+    // const pw=req.body.pw;
+    // const email=req.body.email;
+    // const sex=req.body.sex;
     let result
-
+    const timeStamp = new Date().getTime();
     try{
         result = await models['user'].create({
             id,//앞은 key값
@@ -29,10 +30,11 @@ app.post('/signUp',async(req,res)=>{
             pw,
             email,
             sex,
+            date:timeStamp//현재시간
         })
     }catch(err){
         console.log(err);
-        res.send({message:"회원가입에 실패했습니다."})
+        return res.send({message:"회원가입에 실패했습니다."})
     }
 
     res.send({message:"회원가입에 성공했습니다."})
@@ -41,11 +43,6 @@ app.post('/signUp',async(req,res)=>{
 
 
 
-
-const userData={
-    id:'hi',
-    pw:'gg'
-}
 //request response
 //누군가가 /로그인으로 방문을 하면 
 // 로그인 관련된 안내문을띄워주자...
