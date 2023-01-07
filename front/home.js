@@ -8,7 +8,11 @@ function clickEvent(){
       id:id,
       pw:pw
     }).then((res)=>{
-      
+      if(res.data.message){
+        return console.log(err.data.message)
+      }
+      const token  = res.data.data
+      localStorage.setItem("accessToken",token)
     }).catch((err)=>{
       console.log(err)
     })
