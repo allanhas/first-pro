@@ -5,9 +5,9 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express();
+const jwt = require('jsonwebtoken')
 
-
-
+// front -> check()미들웨어 설정-> signUp ->front
 
 app.use(bodyParser.json())
 app.use(cors());
@@ -16,11 +16,23 @@ app.use(cors());
 // 회원가입 관련된 안내문을띄워주자...
 app.post('/signUp',async(req,res)=>{
     const {id,name,pw,email,sex}=req.body
-    // const id=req.body.id;
-    // const name=req.body.name;
-    // const pw=req.body.pw;
-    // const email=req.body.email;
-    // const sex=req.body.sex;
+    let isDuplicate;
+    // test
+    try{
+        isDuplicate = await models['user'].findOne({
+            where:{
+                id:id
+            }
+        })
+    }catch(err){
+        console.log(err);
+        res.status(400).send({message:"Duplicate check error"})
+    }
+
+    if(isDuplicate){
+        return res.send({message:"이미 존재하는 회원ID입니다."})
+    }
+
     let result
     const timeStamp = new Date().getTime();
     try{
@@ -47,12 +59,12 @@ app.post('/signUp',async(req,res)=>{
 //누군가가 /로그인으로 방문을 하면 
 // 로그인 관련된 안내문을띄워주자...
 app.post('/login',async(req,res)=>{
-    // 입력값들
-    const id=req.body.id;
-    const pw=req.body.pw;
-    // 디비에서 뽑아온 값을 임시로 저장할 공간
-    let result;
+    const {id,pw}=req.body;
 
+    if(!id||!pw){
+        return res.send({message:"no data"})
+    }
+    
     try{
         result = await models['user'].findOne({
             where:{
@@ -62,19 +74,31 @@ app.post('/login',async(req,res)=>{
     }catch(err){
         console.log(err)
     }
-    // 아이디가 맞는지 체크하기
-    if(result===null||result===undefined){
-        return res.send({data:"idFailed"})
+
+    if (!result){
+        console.log("hi")
+        return res.send({message:'there is no id in db'})
     }
-    // 확인할려고
-    console.log("서버측 데이터: "+result.dataValues.pw)
-    console.log("입력한 데이터: "+pw)
-    // 비밀번호가 맞는지 체크하기
-    if(pw!==result.dataValues.pw){
-        return res.send({data:"pwFailed"});
+
+    if (pw!==result.dataValues.pw){
+        return res.send({message:'password is not correct'})
     }
-    
-    res.send({data:0})
+
+    const payload = result.dataValues
+
+    const signToken = (payload) => {
+        try{
+            return jwt.sign(payload, 'aaa',{
+            algorithm: 'HS256',
+            expiresIn: '5h',
+            })
+        }catch(err){
+            console.log(err)
+        }
+    }
+    const token = signToken(payload)
+    console.log(token)
+    res.send({data:token})
 })
 
 //지금 port 번째 포트를 듣고 있다 즉, 요청을 받아들일 준비가 되어 있다 이런뜻임 대충 ㅇㅋ? 
