@@ -1,5 +1,73 @@
-<!-- 토큰값을 헤더에 담아서 보낸다. 그리고 미들웨어에서 처리를 해서 토큰이 유효한지 확인하고
-유효하다면 다음 작업을 할 수 있게 하고 안되면 에러로 돌려보냄 -->
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <link rel="stylesheet" href="home.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./home.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="nav">
+        <a href = "./home.html">EPL PROJECT</a> 
+        <div class="nav-items">
+            <div class="nav-item">
+                <a href="./myInfo.html">내정보</a>
+            </div>
+            <div class="nav-item">
+                <a href ="./teamRank.html">팀순위</a>
+            </div>
+            <div class="nav-item">
+                <a href ="./playerRank.html">선수순위</a> 
+            </div>
+            <div class="nav-item">
+                <a href ="tactics.html">팀별전술</a>
+            </div>
+        </div>
+    </div>
 
+    <div class="main" >
+        <div class="title">
+            <a href = "./myTactics.html">나만의 전술 만들기</a> 
+        </div>
+        <div class="subtitle">
+            당신도 명장이 될 수 있습니다
 
-<!--  -->
+        </div>
+    </div>
+    <div>
+        <header>
+            <div class="innerHeader" style="display: inline-block">
+                <h1 class="logo">
+                    <a href='https://www.premierleague.com/'><img src="https://download.logo.wine/logo/Premier_League/Premier_League-Logo.wine.png" style="width: 200px;">
+                    </a>
+        </header>
+        
+        
+        
+    </div>
+    <div  id ="input">
+        <div>
+            <div>
+               <input type="text" id="id" >
+            </div>
+            <div>
+                <input type="text" id="pw" >
+            </div>
+        </div>
+        <div onclick="clickEvent()" value="로그인" style="display: inline-block">
+            <input type="button" value="로그인" style="height: 50px;">
+        </div>
+        <div  style="display: inline-block">
+            <a href="./signUp.html">
+                <input type="button" value="회원가입" style="height: 50px;">
+            </a>
+        </div>
+    </div>
+    <div>
+    </div>
+</div>    
+</body>
+</html>      

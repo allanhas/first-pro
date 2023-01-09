@@ -1,0 +1,28 @@
+app.post('/login',async(req,res)=>{
+    const {id,pw}=req.body;
+
+    if(!id||!pw){
+        return res.send({message:"please type the id and pw"})
+    }
+
+    try{
+        result = await models['user'].findOne({
+            where:{
+                id:id
+            }
+        })
+    }catch(err){
+        console.log(err)
+    }
+
+    if(!result){
+        console.log('there is no data in db')
+        return res.send({message:'there is no data in db'})
+    }
+    if(pw!==result.dataValues.pw){
+        return res.send({message:'passward is not correct'})
+    }
+
+    const payload=result.
+
+})
