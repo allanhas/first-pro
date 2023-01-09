@@ -88,7 +88,7 @@ app.post('/login',async(req,res)=>{
 
     const signToken = (payload) => {
         try{
-            return jwt.sign(payload, 'aaa',{
+            return jwt.sign(payload, 'bbb',{
             algorithm: 'HS256',
             expiresIn: '5h',
             })
@@ -144,11 +144,8 @@ app.get('/', function (req, res) {
 
 
 
-//코딩애플 숙제임 굿! >> 누군가/뷰티 로 들어오면 xx를 보내주세요~
-app.get('/beauty',function(req,res){
-    res.send('뷰티용품을 골라보십숑')
-});
 
+app.get('/users',user.list:
 
 //조코딩 백엔드 기초실습
 //피글렛모듈 이용해서 아스키코드 찍기
