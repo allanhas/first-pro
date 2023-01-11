@@ -1,0 +1,12 @@
+a{
+    text-decoration-line: none;
+    color: inherit;
+}
+
+
+.board_list_head > div,
+.board_list_body .item > div {
+    display: inline-block;
+    background: yellow;
+    font-size: 14px;
+}

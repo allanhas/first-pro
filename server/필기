@@ -83,3 +83,35 @@ cors:
    html 이 들러오면 오류가 남 > npm cors모듈을 설치해야 함(이미 깔려있음)
 	npm install cors 로 모듈을 다운받고 나서 app.use(cors())를 하면 모든 파일을 다 허용함
 	근데 cors() 안에 파일을 넣으면 그 파일에서 오는건 다 컷해버리는 그런 모듈임!
+
+
+jwt:
+	<!-- 토큰값을 헤더에 담아서 보낸다. 그리고 미들웨어에서 처리를 해서 토큰이 유효한지 확인하고
+유효하다면 다음 작업을 할 수 있게 하고 안되면 에러로 돌려보냄 -->
+
+
+
+
+sql에 대해서:
+	sql은 db와의 대화이다. 엑셀파일과 같다고 생각하면 댐 sql에는 postgresql, mysql, sqlite등등이 있다
+	nonsql에는 mongodb ,dynamodb등이 있다. 
+
+ㅡ행(row) l열(column) 
+
+간단한 spl커맨드로는 select가 있음   예를 들어 student 테이블 유저의 모든 이메일을 가지고 오고 싶다면:
+	SELECT email FROM students; 가 되는것임
+
+만약 21살 이상의 학생의 이메일을 테이블에서 가져오고 싶다? 
+	SELECT email FROM students WHERE age > 21; 이렇게 치면 대는 것임 
+
+만일 네이버이메일을 가진 학생dml 나이를 테이블에서 데려오고 싶다면?
+	SELECT age FROM students WHERE email LIKE "%naver.com";
+
+이번엔 15~18세 사이의 학생들만 찾고싶다면?
+	SELECT age R
+
+
+
+
+
+ 
