@@ -42,18 +42,23 @@ image{
 
 
 /* 게시판 */
-.board_list{
-    border-top: 2px solid green;
-}
+
 
 .board_list_head, 
 .board_list_body .item{
     font-size: 0;
+    padding: 10px 0;
 }
 
 .board_list_head{
-    padding: 10px 0;
+    border-top: 2px solid green;
+    border-bottom:1px solid #ccc;
 }
+
+.board_list_body .item{
+    border-bottom: 1px solid #ccc;
+}
+
 
 
 .board_list_head > div,
@@ -88,4 +93,11 @@ image{
 
 .board_list .view{
     width: 15%;
+}
+
+
+/* paging */
+.paging{
+    margin-top: 30px;
+    text-align: center;
 }
