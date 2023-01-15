@@ -1,7 +1,7 @@
 {
-  "name": "project01",
+  "name": "vuedongsan",
   "version": "0.1.0",
-  "private": true, 
+  "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -34,7 +34,7 @@
     },
     "rules": {
       "vue/no-unused-components": "off",
-      "no-unused-vars":"off"
+      "no-unused-vars": "off"
     }
   },
   "browserslist": [
