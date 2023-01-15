@@ -102,7 +102,7 @@ export default {
 }
 .menu a {
   color: white;
-  padding: 10px;
+  padding: 11px;
 }
 
 
