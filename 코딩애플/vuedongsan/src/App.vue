@@ -134,6 +134,8 @@ div{
 
 
 
+
+
 .room-img {
   width: 100%;
   margin-top: 40px;

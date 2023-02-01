@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <div class="black-bg">
+        <div class="white-bg">
+          <h4>로그인하세요</h4>
+          <button class="class" id="close">닫기</button>
+        </div>
+      </div> 
+      <button class="open" id="open">열기</button>
+
+
+
+
+
+
+<script>
+    //설렉터 이후에 .on을 씀으로써 기능을 구현함 그기능을 구현당하는건 두번째 설랙터임)
+    $(".open").on('click', function(){
+        $(".black-bg").fadeToggle()
+    });
+    $(".class").on('click', function(){
+        $(".black-bg").fadeToggle()
+    });
+    
+    
+
+</script>
+
+
+
+
+
+</body>
+</html>
