@@ -1,13 +1,38 @@
+
+
+// for(let i =0; i < 3; i++){
+    
+// };
+
+
+
 document.getElementsByClassName('tab-button')[0].addEventListener('click', function(){
-    document.getElementsByClassName('tab-button')[1].classList.remove ='orange'
-       
+    document.getElementsByClassName('tab-button')[0].classList.add('orange')
+    document.getElementsByClassName('tab-button')[1].classList.remove('orange')
+    document.getElementsByClassName('tab-button')[2].classList.remove('orange')
+    document.getElementsByClassName('tab-content')[0].classList.add('show')
+    document.getElementsByClassName('tab-content')[1].classList.remove('show')
+    document.getElementsByClassName('tab-content')[2].classList.remove('show')
+});
+
+document.getElementsByClassName('tab-button')[1].addEventListener('click', function(){
+    document.getElementsByClassName('tab-button')[1].classList.add('orange')
+    document.getElementsByClassName('tab-button')[0].classList.remove('orange')
+    document.getElementsByClassName('tab-button')[2].classList.remove('orange')
+    document.getElementsByClassName('tab-content')[1].classList.add('show')
+    document.getElementsByClassName('tab-content')[0].classList.remove('show')
+    document.getElementsByClassName('tab-content')[2].classList.remove('show')
+});
+
+document.getElementsByClassName('tab-button')[2].addEventListener('click', function(){
+    document.getElementsByClassName('tab-button')[2].classList.add('orange')
+    document.getElementsByClassName('tab-button')[0].classList.remove('orange')
+    document.getElementsByClassName('tab-button')[1].classList.remove('orange')
+    document.getElementsByClassName('tab-content')[2].classList.add('show')
+    document.getElementsByClassName('tab-content')[0].classList.remove('show')
+    document.getElementsByClassName('tab-content')[1].classList.remove('show')
 });
 
 
-
-
-
-//  - 모든버튼에 붙은 orange 클래스명 제거
-//  - 버튼 0 에 orange 클래스명 추가
-//  - 모든 div에 붙은 show클래스명 제거
-//  - div0 에 show 클래스명 추가
+function 탭열기(){
+}

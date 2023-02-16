@@ -13,14 +13,169 @@
 </head>
 <body>
     
-    <script>
+  <div class="container mt-3">
+    <div class="card p-3">
+      <span id="car-title">상품명</span>
+      <span id="car-price">가격</span>
+    </div>
+  </div> 
+  
+  <script>
+    var car2 = { name : '소나타', price : [50000, 3000, 4000]} 
+    document.getElementById('car-title').innerHTML=car2.name
+    document.getElementById('car-price').innerHTML=car2.price[0]
+
+    console.log(car2.price)
+  </script>
+      
+
+
+      <form class="container my-5 form-group">
+        <p>상품선택</p>
+        
+        <select class="form-select mt-2">
+          <option>모자</option>
+          <option class="option-shirt">셔츠</option>
+          <option>바지</option>
+          <option>신발</option>
+        </select>
+        
+        <select class="form-select mt-2 form-hide">
+          <option>95</option>
+          <option>100</option>
+          <option>105</option>
+          <option>110</option>
+        </select>
+      
+
+      <select class="form-select mt-2 form-hide">
+        <option>28</option>
+        <option>30</option>
+        <option>32</option>
+        <option>34</option>
+      </select>
+    </form>
+      
     
-    window.addEventListener('scroll', function(){
-        console.log('dfdf')
+    
+    <div id="test">
+      <h4>반가워</h4>
+
+    </div>
+
+
+
+
+    <script>
+      var pants = [28, 30, 32];
+
+      $('.test').eq(1).append('<option>282828</option>');
+
+
+      
+      
+      
+
+
+
+
+
+    document.getElementsByClassName('form-select')[0].addEventListener('input', function(){
+      var value = document.getElementsByClassName('form-select')[0].value
+      if(value =='셔츠'){
+        document.getElementsByClassName('form-select')[2].classList.add('form-hide')
+        document.getElementsByClassName('form-select')[1].classList.remove('form-hide')
+        
+      }
+      else if(value =='바지'){
+        document.getElementsByClassName('form-select')[1].classList.add('form-hide')
+        document.getElementsByClassName('form-select')[2].classList.remove('form-hide')
+        
+        pants.forEach(function(){
+          document.getElementsByClassName('form-select')[1].append('<option>26</option>')
+        
+        })
+
+      
+      
+      }
     });
     
     
+
+
+     
+
     </script>
+    
+    
+      
+      <div class="container mt-5">
+        <ul class="list">
+          <li class="tab-button">Products</li>
+          <li class="tab-button orange">Information</li>
+          <li class="tab-button">Shipping</li>
+        </ul>
+        <div class="tab-content">
+          <p>상품설명입니다. Product</p>
+        </div>
+        <div class="tab-content show">
+          <p>스펙설명입니다. Information</p>
+        </div>
+        <div class="tab-content">
+          <p>배송정보입니다. Shipping</p>
+        </div>
+      </div> 
+
+
+
+      <script src="tab.js"></script>
+
+
+
+      <style>
+        ul.list {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          border-bottom: 1px solid #ccc;
+        }
+        ul.list::after {
+          content: '';
+          display: block;
+          clear: both;
+        }
+        .tab-button {
+          display: block;
+          padding: 10px 20px 10px 20px;
+          float: left;
+          margin-right: -1px;
+          margin-bottom: -1px;
+          color: grey;
+          text-decoration: none;
+          cursor: pointer;
+        }
+        .orange {
+          border-top: 2px solid orange;
+          border-right: 1px solid #ccc;
+          border-bottom: 1px solid white;
+          border-left: 1px solid #ccc;
+          color: black;
+          margin-top: -2px;
+        }
+        .tab-content {
+          display: none;
+          padding: 10px;
+        }
+        .show {
+          display: block;
+        }
+        .form-hide {
+          display: none;
+        }
+        
+      </style>
+
 
 
 </body>

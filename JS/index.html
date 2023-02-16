@@ -20,6 +20,7 @@
   <div class="black-bg">
     <div class="white-bg">
       <h4>로그인하세요</h4>
+
        <form action="success.html">
         <div class="my-3">
           <input type="text" class="email">
@@ -42,6 +43,9 @@
 
 
   <script>
+    
+
+
     document.getElementsByClassName('btn-primary')[0].addEventListener('click',function(e){
       
       if(document.getElementsByClassName('email')[0].value=="" || document.getElementsByClassName('password')[0].value==""){
@@ -217,6 +221,17 @@
         document.getElementById('login-btn').addEventListener('click', function(){
           document.getElementsByClassName('black-bg')[0].classList.toggle('show-modal');
         });
+
+        document.getElementsByClassName('black-bg')[0].addEventListener('click', function(e){
+          
+          if(e.target == document.getElementsByClassName('black-bg')[0]){
+            document.getElementsByClassName('black-bg')[0].classList.remove('show-modal');
+          };
+          
+        });
+
+
+
 
     </script>
 

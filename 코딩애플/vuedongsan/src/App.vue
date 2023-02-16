@@ -1,10 +1,14 @@
 <template>
 
+<Discount/>
+  
 
   <div class="black-bg" v-if="모달창열렸니 == true">
     <div class="white-bg">
-      <h4>상세페이지임</h4>
-      <p>상세페이지 내용임</p>
+      <img :src="원룸들[누른거].image">
+      <h4>{{원룸들[누른거].title}}</h4>
+      <p>{{원룸들[누른거].content}}</p>
+      <p>{{원룸들[누른거].price}}원</p>
       <button @click="모달창열렸니=false">닫기</button>
       
     </div>
@@ -18,9 +22,14 @@
     <a v-for="a in 메뉴들" :key="a">
       {{ a }}
     </a>
-    
   </div>
 
+
+
+
+  
+  
+ 
 
 
 
@@ -32,10 +41,9 @@
   </div>  반복문을 활용한 매물표현-->
   <div v-for="a,i in 원룸들" :key="i">
     <img :src="원룸들[i].image" class="room-img">
-    <h4>{{ 원룸들[i].title }}</h4>
+    <h4 @click="모달창열렸니=true; 누른거 = i">{{ 원룸들[i].title }}</h4>
     <p>{{ 원룸들[i].price }}원</p>
     <a>{{ 원룸들[i].content }}</a>
-    
   </div>
 
   <div>
@@ -61,12 +69,14 @@
 <script>
 
 import data from './assets/oneroom.js';
+import Discount from './Discount.vue';
 
 
 export default {
   name: 'App',
   data(){
     return {
+      누른거 : 0,
       원룸들 : data,
       모달창열렸니 : false,
       신고수 : [0,0,0],
@@ -89,7 +99,7 @@ export default {
 
 
   components: {
-   
+    discount : TheDiscount,
   },
 }}
 </script>
@@ -120,6 +130,13 @@ div{
   width:100%; background: white;
   border-radius: 8px;
   padding: 20px;
+}
+
+.discount{
+  background: #eee;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
 }
 
 
